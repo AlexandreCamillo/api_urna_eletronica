@@ -1,0 +1,60 @@
+version: '3.7'
+services:
+  web:
+    image: nginx:alpine
+    container_name: trabalho_final_nginx
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+    volumes:
+      - ./:/var/www
+      - ./docker-compose/nginx:/etc/nginx/conf.d
+    networks:
+      - trab_final
+  
+  db:
+    image: mysql:8
+    container_name: trab_final_db
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./docker-compose/mysql/config:/docker-entrypoint-initdb.d
+    networks:
+      - trab_final
+  
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    networks:
+      - trab_final
+
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: trab_final
+    container_name: trab_final_app
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+    networks:
+      - trab_final
+
+networks:
+  trab_final:
+    driver: bridge
