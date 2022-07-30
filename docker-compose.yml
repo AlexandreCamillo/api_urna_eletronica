@@ -54,6 +54,12 @@ services:
       - ./:/var/www
     networks:
       - trab_final
+    environment:
+      DB_DRIVE: ${DB_DRIVE}
+      DB_HOST: ${DB_HOST}
+      DB_DATABASE: ${DB_DATABASE}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
 
 networks:
   trab_final:

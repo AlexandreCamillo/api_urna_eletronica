@@ -4,7 +4,4 @@
 
   use Helpers\BasicRouter;
 
-
   Helpers\BasicRouter::handleRequest($_REQUEST);
-
-  

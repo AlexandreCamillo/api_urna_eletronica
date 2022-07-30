@@ -10,10 +10,14 @@
             return strtolower($class_name).'s';
         }
 
-        public static function find(int $id) {
-            $connPdo = new \PDO(DBDRIVE.':host='.DBHOST.';dbname='.DBNAME, DBUSER, DBPASS);
+        private static function pdo_connection() {
+            return new \PDO($_ENV['DB_DRIVE'].':host='.$_ENV['DB_HOST'].';dbname='.$_ENV['DB_DATABASE'], $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD']);
+        }
 
-            $table = get_table();
+        public static function find(int $id) {
+            $connPdo = self::pdo_connection();
+
+            $table = self::get_table();
 
             $sql = 'SELECT * FROM '.$table.' WHERE id = :id';
             $stmt = $connPdo->prepare($sql);
@@ -28,7 +32,7 @@
         }
 
         public static function all() {
-            $connPdo = new \PDO(DBDRIVE.':host='.DBHOST.';dbname='.DBNAME, DBUSER, DBPASS);
+            $connPdo = self::pdo_connection();
 
             $table = self::get_table();
 
@@ -45,7 +49,7 @@
 
         // public static function insert($data)
         // {
-        //     $connPdo = new \PDO(DBDRIVE.': host='.DBHOST.'; dbname='.DBNAME, DBUSER, DBPASS);
+        //     $connPdo = new \PDO($_ENV['DB_DRIVE'].': host='.$_ENV['DB_HOST'].'; $_ENV['DB_DATABASE']='.$_ENV['DB_DATABASE'], $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD']);
 
         //     $sql = 'INSERT INTO '.self::$table.' (email, password, name) VALUES (:em, :pa, :na)';
         //     $stmt = $connPdo->prepare($sql);
