@@ -24,6 +24,7 @@
       $resource = array_pop($path);
 
       if($resource === '') {
+
         http_response_code(200);
         exit;
       }
@@ -36,6 +37,9 @@
         $response = call_user_func_array(array(new $service, $method), [$request]);
 
         http_response_code(200);
+
+        header('Content-Type: application/json; charset=utf-8');
+      
         echo json_encode(array('status' => 'sucess', 'data' => $response));
         exit;
       } catch (Exception $e) {

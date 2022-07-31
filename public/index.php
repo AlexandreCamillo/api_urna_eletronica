@@ -3,8 +3,6 @@
 
   header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
 
-  header('Content-Type: application/json; charset=utf-8');
-
   require_once '../vendor/autoload.php';
   
   use Helpers\BasicRouter;
