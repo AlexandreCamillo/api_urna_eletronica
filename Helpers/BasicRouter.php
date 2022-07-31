@@ -31,7 +31,7 @@
 
       $service = 'App\Controllers\\'.ucfirst($resource).'Controller';
 
-      $method = strtolower($_SERVER['REQUEST_METHOD']);
+      $method = $request['method'] ?? strtolower($_SERVER['REQUEST_METHOD']);
 
       try {
         $response = call_user_func_array(array(new $service, $method), [$request]);
