@@ -5,6 +5,6 @@
 
     class StagesController {
       public static function get($request){
-        return Stage::allWithCandidates();
+        return Stage::all_with_candidates();
       }
     }

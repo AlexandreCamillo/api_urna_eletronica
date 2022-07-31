@@ -4,5 +4,4 @@
 
   class Candidate extends BaseModel {
     private static $table = 'candidates';
-
   } 
