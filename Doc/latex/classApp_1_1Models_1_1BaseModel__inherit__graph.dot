@@ -1,0 +1,13 @@
+digraph "App\Models\BaseModel"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="App\\Models\\BaseModel",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="App\\Models\\Candidate",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classApp_1_1Models_1_1Candidate.html",tooltip=" "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="App\\Models\\Stage",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classApp_1_1Models_1_1Stage.html",tooltip=" "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="App\\Models\\Vote",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classApp_1_1Models_1_1Vote.html",tooltip=" "];
+}

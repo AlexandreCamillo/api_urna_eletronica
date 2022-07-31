@@ -5,8 +5,13 @@
     use App\Models\Stage;
     use App\Models\Candidate;
 
-
+    /**
+     * Classe de controle dos votes
+     */
     class VotesController {
+      /**
+       * Método para lidar com requisições do tipo get para endpoints de votes
+       */
       public static function get() {
         $stages = Stage::all_with_candidates();
         $votes = Vote::all();
@@ -43,9 +48,13 @@
         return $response;
       }
 
-      public static function put($request){
+      /**
+       * Método para lidar com requisições do tipo put para endpoints de votes
+       * @param body Corpo da requisição
+       */
+      public static function post($body){
 
-        $votes = $request['votes'];
+        $votes = $body['votes'];
 
         $validated_votes = [];
 
@@ -68,6 +77,9 @@
         return 'Voto contabilizado com sucesso!';
       }
 
+      /**
+       * Método para lidar com requisições do tipo delete para endpoints de votes
+       */
       public static function delete() {
         Vote::delete_all();
 

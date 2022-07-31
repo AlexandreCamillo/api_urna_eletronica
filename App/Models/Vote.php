@@ -2,10 +2,17 @@
 
   namespace App\Models;
 
+  /**
+   * Classe que herda de BaseModel para permitir o acesso mais intuitivo a tabela candidates
+   */
   class Vote extends BaseModel {
     private static $table = 'votes';
 
-
+    /**
+     * Método para inserir um novo voto
+     * @param stage_id Identificador da etapa
+     * @param candidate_id Identificador do candidato
+     */
     public static function insert($stage_id, $candidate_id)
     {
         $connPdo = self::pdo_connection();
@@ -25,6 +32,9 @@
         }
     }
 
+    /**
+     * Método para remover todos os votos da base
+     */
     public static function delete_all()
     {
         $connPdo = self::pdo_connection();

@@ -1,43 +1,47 @@
 <?php
 
-namespace Helpers;
+  namespace Helpers;
 
-class BasicRouter {
+  /**
+   * Classe responsável por enviar as requisições para a controller correta com o método correto
+   * baseada no path da requisição
+   */
+  class BasicRouter {
 
-  private static function path() {
-    [ $path ] = explode('?', $_SERVER['REQUEST_URI']);
-    $path = explode('/', $path);
+    private static function path() {
+      [ $path ] = explode('?', $_SERVER['REQUEST_URI']);
+      $path = explode('/', $path);
 
-    array_shift($path);
-  
-    return $path;
-  }
-
-
-  public static function handleRequest($request) {
-    $path = self::path();
-
-    $resource = array_pop($path);
-
-    if($resource === '') {
-      http_response_code(200);
-      exit;
+      array_shift($path);
+    
+      return $path;
     }
 
-    $service = 'App\Controllers\\'.ucfirst($resource).'Controller';
 
-    $method = strtolower($_SERVER['REQUEST_METHOD']);
+    public static function handleRequest($request) {
+      $path = self::path();
 
-    try {
-      $response = call_user_func_array(array(new $service, $method), [$request]);
+      $resource = array_pop($path);
 
-      http_response_code(200);
-      echo json_encode(array('status' => 'sucess', 'data' => $response));
-      exit;
-    } catch (Exception $e) {
-      http_response_code(404);
-      echo json_encode(array('status' => 'error', 'data' => $e->getMessage()), JSON_UNESCAPED_UNICODE);
-      exit;
+      if($resource === '') {
+        http_response_code(200);
+        exit;
+      }
+
+      $service = 'App\Controllers\\'.ucfirst($resource).'Controller';
+
+      $method = strtolower($_SERVER['REQUEST_METHOD']);
+
+      try {
+        $response = call_user_func_array(array(new $service, $method), [$request]);
+
+        http_response_code(200);
+        echo json_encode(array('status' => 'sucess', 'data' => $response));
+        exit;
+      } catch (Exception $e) {
+        http_response_code(404);
+        echo json_encode(array('status' => 'error', 'data' => $e->getMessage()), JSON_UNESCAPED_UNICODE);
+        exit;
+      }
     }
   }
-}

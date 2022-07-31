@@ -1,0 +1,57 @@
+\hypertarget{classApp_1_1Models_1_1BaseModel}{}\doxysection{Referência à classe App\textbackslash{}Models\textbackslash{}Base\+Model}
+\label{classApp_1_1Models_1_1BaseModel}\index{App\textbackslash{}Models\textbackslash{}BaseModel@{App\textbackslash{}Models\textbackslash{}BaseModel}}
+
+
+Diagrama de heranças da classe App\textbackslash{}Models\textbackslash{}Base\+Model
+% FIG 0
+\doxysubsection*{Membros públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classApp_1_1Models_1_1BaseModel_adcab8e7f848d2333ee36c3472cef0efc}{get\+\_\+table}} ()
+\item 
+static \mbox{\hyperlink{classApp_1_1Models_1_1BaseModel_a5bb5a70ec4fcfa0c1ac653bf2043b703}{pdo\+\_\+connection}} ()
+\item 
+static \mbox{\hyperlink{classApp_1_1Models_1_1BaseModel_a37d2d8ca6ca63588d588361aa1bb120d}{find}} (\$id)
+\item 
+static \mbox{\hyperlink{classApp_1_1Models_1_1BaseModel_ad13e63cc1077ccb6e51afe71c4cc2958}{all}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Classe base para classes com responsabilidade de persistência de dados no banco de dados 
+
+\doxysubsection{Documentação dos métodos}
+\mbox{\Hypertarget{classApp_1_1Models_1_1BaseModel_ad13e63cc1077ccb6e51afe71c4cc2958}\label{classApp_1_1Models_1_1BaseModel_ad13e63cc1077ccb6e51afe71c4cc2958}} 
+\index{App\textbackslash{}Models\textbackslash{}BaseModel@{App\textbackslash{}Models\textbackslash{}BaseModel}!all@{all}}
+\index{all@{all}!App\textbackslash{}Models\textbackslash{}BaseModel@{App\textbackslash{}Models\textbackslash{}BaseModel}}
+\doxysubsubsection{\texorpdfstring{all()}{all()}}
+{\footnotesize\ttfamily static App\textbackslash{}\+Models\textbackslash{}\+Base\+Model\+::all (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Método para retornar os dados de todas as instâncias da tabela da classe que usa essa classe base \mbox{\Hypertarget{classApp_1_1Models_1_1BaseModel_a37d2d8ca6ca63588d588361aa1bb120d}\label{classApp_1_1Models_1_1BaseModel_a37d2d8ca6ca63588d588361aa1bb120d}} 
+\index{App\textbackslash{}Models\textbackslash{}BaseModel@{App\textbackslash{}Models\textbackslash{}BaseModel}!find@{find}}
+\index{find@{find}!App\textbackslash{}Models\textbackslash{}BaseModel@{App\textbackslash{}Models\textbackslash{}BaseModel}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}}
+{\footnotesize\ttfamily static App\textbackslash{}\+Models\textbackslash{}\+Base\+Model\+::find (\begin{DoxyParamCaption}\item[{}]{\$id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Método para retornar os dados de uma instância da tabela da classe que usa essa classe base com base no identificador da instância 
+\begin{DoxyParams}{Parâmetros}
+{\em id} & Identificador da instância que se deseja encontrar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classApp_1_1Models_1_1BaseModel_adcab8e7f848d2333ee36c3472cef0efc}\label{classApp_1_1Models_1_1BaseModel_adcab8e7f848d2333ee36c3472cef0efc}} 
+\index{App\textbackslash{}Models\textbackslash{}BaseModel@{App\textbackslash{}Models\textbackslash{}BaseModel}!get\_table@{get\_table}}
+\index{get\_table@{get\_table}!App\textbackslash{}Models\textbackslash{}BaseModel@{App\textbackslash{}Models\textbackslash{}BaseModel}}
+\doxysubsubsection{\texorpdfstring{get\_table()}{get\_table()}}
+{\footnotesize\ttfamily static App\textbackslash{}\+Models\textbackslash{}\+Base\+Model\+::get\+\_\+table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Método para retornar a tabela para a qual a model que usa esta classe base foi criada para intermediar \mbox{\Hypertarget{classApp_1_1Models_1_1BaseModel_a5bb5a70ec4fcfa0c1ac653bf2043b703}\label{classApp_1_1Models_1_1BaseModel_a5bb5a70ec4fcfa0c1ac653bf2043b703}} 
+\index{App\textbackslash{}Models\textbackslash{}BaseModel@{App\textbackslash{}Models\textbackslash{}BaseModel}!pdo\_connection@{pdo\_connection}}
+\index{pdo\_connection@{pdo\_connection}!App\textbackslash{}Models\textbackslash{}BaseModel@{App\textbackslash{}Models\textbackslash{}BaseModel}}
+\doxysubsubsection{\texorpdfstring{pdo\_connection()}{pdo\_connection()}}
+{\footnotesize\ttfamily static App\textbackslash{}\+Models\textbackslash{}\+Base\+Model\+::pdo\+\_\+connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Método para criar a conexão com o banco de dados baseado nas variáveis de ambiente 
+
+A documentação para esta classe foi gerada a partir do seguinte ficheiro\+:\begin{DoxyCompactItemize}
+\item 
+App/\+Models/Base\+Model.\+php\end{DoxyCompactItemize}
